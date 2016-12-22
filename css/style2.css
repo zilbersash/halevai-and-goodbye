@@ -46,12 +46,12 @@ border: 1px solid #25253A;
 }
 
 .carousel-control .glyphicon-chevron-left, .carousel-control .icon-prev{
-	background-image: url("../img/arrowL.png") !important;
+	background-image: url("../pngs/nav/arrow_left.png") !important;
 	margin-left: -70px;
 }
 
 .carousel-control .icon-prev, .carousel-control .icon-next, .carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right{
-	background-image: url("../img/arrow.png");
+	background-image: url("../pngs/nav/arrow_right.png");
 	margin-right: -70px;
 }
 
@@ -224,7 +224,3 @@ z-index: 1;
 top: 0;
 
 }
-
-
-
-
