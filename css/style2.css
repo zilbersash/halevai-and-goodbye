@@ -103,14 +103,16 @@ nav a:hover {
 }
 
 .page_content {
-    width: 1000px;
-    height: 750px;
-    overflow: hidden;
-    left: 50%;
-    margin-left: -500px;
-    margin-top: -365px;
-    top: 50%;
-    z-index: 2;
+    width: 100vw; 
+    height: 75vw;
+    max-height: 100vh;
+    max-width: 133.3333vh;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 *:focus {
