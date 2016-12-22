@@ -1,124 +1,108 @@
-html, body{
-color: #25253A;
-font-family: "Freight Sans Pro";
-height: 100%;
-width: 100%;
-overflow: hidden;
-background-color: black;
+html, body {
+    color: #25253A;
+    font-family: "Freight Sans Pro";
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-color: black;
 }
-
-
 
 .carousel-caption {
-
-color: #25253A;
-text-shadow:none;
-right: 20%;
-left: 20%;
-padding-bottom: 35px;
-text-transform: uppercase;
-font-weight: 700;
-font-size: 16px;
+    color: #25253A;
+    text-shadow: none;
+    right: 20%;
+    left: 20%;
+    padding-bottom: 35px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 16px;
 }
 
-
-
-
-.carousel-control{
-	text-shadow:none;
+.carousel-control {
+    text-shadow: none;
 }
 
-
-
-.carousel-indicators li{
-width: 8px;
-height: 8px;
-margin: 1px;
-border: 1px solid #25253A;
-border-radius: 50%;
-}
-.carousel-indicators .active{
-	width: 8px;
-height: 8px;
-margin: 1px;
-background-color: #25253A;
-border: 1px solid #25253A;
+.carousel-indicators li {
+    width: 8px;
+    height: 8px;
+    margin: 1px;
+    border: 1px solid #25253A;
+    border-radius: 50%;
 }
 
-.carousel-control .glyphicon-chevron-left, .carousel-control .icon-prev{
-	background-image: url("../pngs/nav/arrow_left.png") !important;
-	margin-left: -70px;
+.carousel-indicators .active {
+    width: 8px;
+    height: 8px;
+    margin: 1px;
+    background-color: #25253A;
+    border: 1px solid #25253A;
 }
 
-.carousel-control .icon-prev, .carousel-control .icon-next, .carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right{
-	background-image: url("../pngs/nav/arrow_right.png");
-	margin-right: -70px;
+.carousel-control .glyphicon-chevron-left, .carousel-control .icon-prev {
+    background-image: url("../pngs/nav/arrow_left.png") !important;
+    margin-left: -70px;
 }
 
-.carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-prev, .carousel-control .icon-next{
-	height: 40px;
+.carousel-control .icon-prev, .carousel-control .icon-next, .carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right {
+    background-image: url("../pngs/nav/arrow_right.png");
+    margin-right: -70px;
 }
 
-
-
-.carousel-control{
-	z-index: 100000;
+.carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-prev, .carousel-control .icon-next {
+    height: 40px;
 }
 
-
-
-.menu_btn img{
-	display: inline-block;
-	vertical-align: middle;
-	width: 30px;
-
+.carousel-control {
+    z-index: 100000;
 }
 
-img{
-	display: inline !important;
+.menu_btn img {
+    display: inline-block;
+    vertical-align: middle;
+    width: 30px;
 }
 
-.n_6 i{
-	
+img {
+    display: inline !important;
 }
 
+.n_6 i {}
 
-.menu_btn{
-position: absolute;
-margin-left: 50%;
-left: -35px;
-top: 25px;
-z-index: -1;
-cursor: pointer;
+.menu_btn {
+    position: absolute;
+    margin-left: 50%;
+    left: -35px;
+    top: 25px;
+    z-index: -1;
+    cursor: pointer;
 }
 
-nav{
-	float: right;
-	height: 100%;
-	margin-top: 12px;
+nav {
+    float: right;
+    height: 100%;
+    margin-top: 12px;
 }
 
-nav a{
-	vertical-align: middle;
-	text-transform: uppercase;
-	font-size: 15px;
-	font-weight: 700;
-	margin-left: 10px;
-	color: #25253A;
+nav a {
+    vertical-align: middle;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 700;
+    margin-left: 10px;
+    color: #25253A;
 }
 
-nav a:hover{
-	color: #25253A;
+nav a:hover {
+    color: #25253A;
 }
 
-.container-fluid{
-	max-width: 100%;
-	width: 100%;
-	padding: 70px 15px;
+.container-fluid {
+    max-width: 100%;
+    width: 100%;
+    padding: 70px 15px;
 }
 
-
-.page_content{
+.page_content {
     width: 1000px;
     height: 750px;
     overflow: hidden;
@@ -133,25 +117,22 @@ nav a:hover{
     outline: 0;
 }
 
-
 .carousel-indicators {
     position: fixed;
-
 }
 
-
-.video-wrapper{
-width: 100%;
-height: 100%;
-overflow: hidden;
-position: absolute;
-top: 0;
-left:0;
-z-index: -1;
+.video-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
 
-.fixed{
-	position: fixed;
+.fixed {
+    position: fixed;
     margin-left: 50%;
     z-index: -1;
     width: 1000px;
@@ -161,66 +142,64 @@ z-index: -1;
 }
 
 .page_content {
-  position: absolute;
-}
-.sixteen-nine:before {
-  display: block;
-  content: "";
-  width: 100%;
-  padding-top: 56.25%;
-}
-.sixteen-nine > .content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+    position: absolute;
 }
 
-.carousel{
-	position: relative;
+.sixteen-nine:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: 56.25%;
+}
+
+.sixteen-nine>.content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.carousel {
+    position: relative;
     width: 1020px;
     height: 100%;
     overflow-y: auto;
 }
 
-
-.carousel .item{
-	transition:opacity 0.3s;
+.carousel .item {
+    transition: opacity 0.3s;
     text-align: center;
     background-position: center 0;
     background-repeat: no-repeat;
     background-attachment: fixed;
-	background-size: contain auto;
+    background-size: contain auto;
 }
 
-.carousel .active.left{
-	left: 0;
-	opacity: 0;
-	z-index: 2;
+.carousel .active.left {
+    left: 0;
+    opacity: 0;
+    z-index: 2;
 }
 
 .carousel .next {
-left:0;
-opacity: 1;
-z-index: 1;
+    left: 0;
+    opacity: 1;
+    z-index: 1;
 }
 
 .carousel-control.left, .carousel-control.right {
-	background: none;
+    background: none;
 }
 
-.carousel-inner .title{
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 1000;
-	width: 100%;
+.carousel-inner .title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
 }
 
-
-
-.video-wrapper video{ 
-top: 0;
-
+.video-wrapper video {
+    top: 0;
 }
