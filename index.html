@@ -252,12 +252,12 @@
   </div>
 
   <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+  <!-- <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
     <span class="glyphicon-chevron-left"></span>
   </a>
   <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
     <span class="glyphicon-chevron-right"></span>
-  </a>
+  </a> -->
 </div>
 
 
@@ -266,8 +266,6 @@
   </body>
 
       <script type="text/javascript">
-
-
         $(document).ready(function() {
           $('.carousel').carousel('pause');
           $('.carousel').carousel({
@@ -276,14 +274,9 @@
           });
         });
 
-        $('[data-target="#carousel-example-generic"]').click(function() { 
-            $('html').scrollTop( 0 );
-            $('body').scrollTop( 0 );
-        });
-
-          var height = $(".page_content").height();
-
-    
+        $('#carousel-example-generic').on('slide.bs.carousel', function () {
+          $('.carousel').scrollTop(0);
+        })
     </script>
 
 </html>
