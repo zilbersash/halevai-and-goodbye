@@ -135,14 +135,12 @@ nav a:hover {
     z-index: -1;
 }
 
-.fixed {
+.carousel .item img.fixed {
     position: fixed;
-    margin-left: 50%;
-    z-index: -1;
-    width: 1000px;
-    left: -500px;
-    margin-left: 50%;
-    right: 0;
+}
+
+.carousel .item img {
+  position: relative;
 }
 
 .page_content {
