@@ -11,15 +11,20 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.scrollify.min.js"></script>
+    <!-- <script src="js/jquery.scrollify.js"></script> -->
 
-    <script>
+    <!-- <script>
         $(function() {
             $.scrollify({
-                section: ".example-classname",
+                target: '.n_4',
+                section: '.n_4 .snap',
+                //standardScrollElements: '.n_4 img:not(.snap):not(.fixed)'
+                standardScrollElements: '.n_4 .scroll',
+                setHeights: false
+                //section: ".example-classname",
             });
         });
-    </script>
+    </script> -->
 </head>
 <body>
     <section class="page_content">
@@ -58,17 +63,17 @@
                 </div>
                 <div class="item n_4">
                     <img src="pngs/Rita/00_rita.png" class="fixed" alt="...">
-                    <img src="pngs/Rita/0.5_rita.png" alt="...">
+                    <img src="pngs/Rita/0.5_rita.png" class="scroll" alt="...">
                     <img src="pngs/Rita/01_rita.png" class="snap" data-snap="1" alt="...">
-                    <img src="pngs/Rita/01.5_rita.png" alt="...">
+                    <img src="pngs/Rita/01.5_rita.png" class="scroll" alt="...">
                     <img src="pngs/Rita/02_rita.png" class="snap" data-snap="2" alt="...">
-                    <img src="pngs/Rita/03_rita.png" alt="...">
+                    <img src="pngs/Rita/03_rita.png" class="scroll" alt="...">
                     <img src="pngs/Rita/04_rita.png" class="snap" data-snap="3" alt="...">
-                    <img src="pngs/Rita/05_rita.png" alt="...">
+                    <img src="pngs/Rita/05_rita.png" class="scroll" alt="...">
                     <img src="pngs/Rita/06_rita.png" class="snap" data-snap="4" alt="...">
-                    <img src="pngs/Rita/07_rita.png" alt="...">
+                    <img src="pngs/Rita/07_rita.png" class="scroll" alt="...">
                     <img src="pngs/Rita/08_rita.png" class="snap" data-snap="5" alt="...">
-                    <img src="pngs/Rita/09_rita.png" alt="...">
+                    <img src="pngs/Rita/09_rita.png" class="scroll" alt="...">
                     <img src="pngs/Rita/10_rita.png" class="snap" data-snap="6" alt="...">
                 </div>
                 <div class="item n_5">
@@ -255,6 +260,8 @@
             -->
         </div>
     </section>
+    <script src="js/polyfill.min.js"></script>
+    <script src="js/scrollsnap-polyfill.js"></script>
 </body>
 
 <script type="text/javascript">

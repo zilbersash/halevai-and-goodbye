@@ -214,3 +214,14 @@ nav a:hover {
 .video-wrapper video {
     top: 0;
 }
+
+
+.n_4 {
+  scroll-snap-type: mandatory;
+  scroll-snap-destination: 0px 0px; 
+}
+
+.n_4 .snap {
+  scroll-snap-coordinate: 0px 0px; 
+  /*scroll-snap-destination: 0px 0px; */
+}
