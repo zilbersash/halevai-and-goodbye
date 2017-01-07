@@ -135,12 +135,16 @@ nav a:hover {
     z-index: -1;
 }
 
-.carousel .item img.fixed {
+.carousel .item .fixed {
     position: fixed;
     width: 100vw; 
     height: 75vw;
     max-height: 100vh;
     max-width: 133.3333vh;
+}
+
+.carousel .item div.fixed img {
+    width: 100%;
 }
 
 .carousel .item img {
