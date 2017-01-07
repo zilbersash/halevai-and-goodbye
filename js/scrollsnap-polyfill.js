@@ -54,7 +54,7 @@
        * time for the smooth scrolling
        * @type {Number}
        */
-      SCROLL_TIME = 768;
+      SCROLL_TIME = 450; //768;
 
   /**
    * set up an element for scroll-snap behaviour
