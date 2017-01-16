@@ -204,12 +204,6 @@ html, body {
     width: 30px;
 }
 
-img {
-    display: inline !important;
-}
-
-.n_6 i {}
-
 .menu_btn {
     position: absolute;
     margin-left: 50%;
@@ -281,6 +275,15 @@ nav a:hover {
 
 .carousel .item div.fixed img {
     width: 100%;
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.carousel .item div.fixed img.active {
+  display: block;
 }
 
 .carousel .item img {
@@ -353,15 +356,4 @@ nav a:hover {
 
 .video-wrapper video {
     top: 0;
-}
-
-
-.n_4 {
-  scroll-snap-type: mandatory;
-  scroll-snap-destination: 0px 0px; 
-}
-
-.n_4 .snap {
-  scroll-snap-coordinate: 0px 0px; 
-  /*scroll-snap-destination: 0px 0px; */
 }

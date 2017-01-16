@@ -15,7 +15,10 @@ $(function() {
     if (backgroundToShow.is(":visible")) {
       return;
     }
-    backgroundToShow.removeClass("hidden");
-    $(obj).find('div.fixed img').not(backgroundToShow).addClass("hidden");
+    var previousBackground = $(obj).find('div.fixed img:visible');
+    backgroundToShow.css("zIndex", 0);
+    previousBackground.css("zIndex", 9999);
+    backgroundToShow.show();
+    previousBackground.fadeOut("200");
   })
 })
