@@ -169,134 +169,37 @@
     var top = scrollObj.scrollTop;
     var snapCoords = 0;
 
-    //for(var i = currentIteration + direction; i<l && i >= 0; i = i+direction) {
     for(var i = 0; i<l; i++) {
       currentIteratedObj = scrollObj.snapElements[i];
-
       // get objects snap coords by adding obj.top + obj.snaplength.y
-      snapCoords = currentIteratedObj.offsetTop - scrollObj.offsetTop; // + getYSnapLength(currentIteratedObj, currentIteratedObj.snapLengthUnit.y);
-
-      // currentIteratedObj.snapCoords = snapCoords;
+      snapCoords = currentIteratedObj.offsetTop - scrollObj.offsetTop;
       // check if object snappoint is "close" enough to scrollable snappoint
-      var height = getHeight(scrollObj);
-      if (direction == 1) {
-        var minScrollToSnap = snapCoords - height / 2; //1=>-1 -1=>0
-        var maxScrollToSnap = snapCoords; //+ direction * height / 2; 1=>0 -1=>1
-      } else {
-        var minScrollToSnap = snapCoords;
-        var maxScrollToSnap = snapCoords + height / 2;
-      }
-      // not scrolled past element snap coords
-      // if (top <= snapCoords && top + getHeight(scrollObj) >= snapCoords) {
-      // if (top >= snapCoords - getHeight(scrollObj) / 2 && top <= snapCoords) { // direction = 1
-      // if (top >= snapCoords && top <= snapCoords + getHeight(scrollObj) / 2) { // direction = -1
+      var height = scrollObj.offsetHeight;
+      var minScrollToSnap = snapCoords - height / 2;
+      var maxScrollToSnap = snapCoords + height / 2;
       if (top >= minScrollToSnap && top <= maxScrollToSnap) {
         // ok, we found a snap point.
         currentIteration = i;
         // stay in bounds (minimum: 0, maxmimum: absolute height)
-        return stayInBounds(0, getScrollHeight(scrollObj), snapCoords);
+        return stayInBounds(0, scrollObj.scrollHeight, snapCoords);
       }
     }
     // no snap found, use first or last?
     if (direction == 1 && i === l-1) {
       currentIteration = l-1;
       // the for loop stopped at the last element
-      return stayInBounds(0, getScrollHeight(scrollObj), snapCoords);
+      return stayInBounds(0, scrollObj.scrollHeight, snapCoords);
     } else if (direction == -1 && i === 0) {
       currentIteration = 0;
       // the for loop stopped at the first element
-      return stayInBounds(0, getScrollHeight(scrollObj), snapCoords);
+      return stayInBounds(0, scrollObj.scrollHeight, snapCoords);
     }
-    return null;
     // stay in the same place
-    // return stayInBounds(0, getScrollHeight(scrollObj), scrollObj.snapElements[currentIteration].snapCoords);
+    return null;
   }
 
-  /**
-   * ceil or floor a number based on direction
-   * @param  {Number} direction
-   * @param  {Number} currentPoint
-   * @return {Number}
-   */
-  function roundByDirection(direction, currentPoint) {
-    if (direction === -1) {
-      // when we go up, we floor the number to jump to the next snap-point in scroll direction
-      return Math.floor(currentPoint);
-    }
-    // go down, we ceil the number to jump to the next in view.
-    return Math.ceil(currentPoint);
-  }
-
-  /**
-   * constrain jumping
-   * @param  {Number} initialPoint
-   * @param  {Number} currentPoint
-   * @param  {Number} nextPoint
-   * @return {Number}
-   */
-  function constrainByDistance(initialPoint, currentPoint, nextPoint, scrollStart, currentScrollValue) {
-    if ((Math.abs(initialPoint - currentPoint) >= SNAP_CONSTRAINT) &&
-         Math.abs(nextPoint - currentPoint) > CONSTRAINT) {
-
-      // constrain jumping to a point too high/low when scrolling for more than SNAP_CONSTRAINT points.
-      // (if the point is 85% further than we are, don't jump..)
-      return Math.round(currentPoint);
-
-    }
-    if ((Math.abs(scrollStart-currentScrollValue) < MIN_PX_CONSTRAINT) &&
-        (Math.abs(initialPoint - currentPoint) < SNAP_CONSTRAINT) &&
-        (Math.abs(nextPoint - currentPoint) > FIRST_CONSTRAINT)) {
-      // constrain jumping to a point too high/low when scrolling just for a few pixels (less than 10 pixels) and (5% of scrollable length)
-      return Math.round(currentPoint);
-    }
-    return nextPoint;
-  }
-
-  /**
-   * keep scrolling in bounds
-   * @param  {Number} min
-   * @param  {Number} max
-   * @param  {Number} destined
-   * @return {Number}
-   */
   function stayInBounds(min, max, destined) {
     return Math.max(Math.min(destined, max), min);
-  }
-
-  /**
-   * get an elements scrollable height
-   * @param  {Object} obj
-   * @return {Number}
-   */
-  function getScrollHeight(obj) {
-    return obj.scrollHeight;
-  }
-
-  /**
-   * get an elements scrollable width
-   * @param  {Object} obj
-   * @return {Number}
-   */
-  function getScrollWidth(obj) {
-    return obj.scrollWidth;
-  }
-
-  /**
-   * get an elements height
-   * @param  {Object} obj
-   * @return {Number}
-   */
-  function getHeight(obj) {
-    return obj.offsetHeight;
-  }
-
-  /**
-   * get an elements width
-   * @param  {Object} obj
-   * @return {Number}
-   */
-  function getWidth(obj) {
-    return obj.offsetWidth;
   }
 
   /**
