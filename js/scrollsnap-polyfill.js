@@ -3,7 +3,7 @@
   'use strict';
   
   $(function() {
-    $(".item").each(function(i, element) {
+    $(".scrolling-layer").each(function(i, element) {
       setUpElement(element);
     });
   });

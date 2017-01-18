@@ -1,8 +1,9 @@
 $(function() {
-  $('.item.dynamic-background').on('scroll', function(event) {
+  $('.item.dynamic-background .scrolling-layer').on('scroll', function(event) {
     var obj = event.target;
-    var backgrounds = $(obj).find('div.fixed img[data-show-with]');
-    var backgroundToShow = $(obj).find('div.fixed img').get(0);
+    var fixedLayer = $(obj).parent().find('.fixed-layer');
+    var backgrounds = fixedLayer.find('img[data-show-with]');
+    var backgroundToShow = fixedLayer.find('img').get(0);
     backgrounds.each(function(i, background) {
       var element = $($(background).data("showWith"));
       if (element[0].offsetTop <= obj.scrollTop + (obj.offsetHeight / 2)) {
@@ -15,9 +16,9 @@ $(function() {
     if (backgroundToShow.is(":visible")) {
       return;
     }
-    var previousBackground = $(obj).find('div.fixed img:visible');
+    var previousBackground = fixedLayer.find('img:visible');
     backgroundToShow.css("zIndex", 0);
-    previousBackground.css("zIndex", 9999);
+    previousBackground.css("zIndex", 1);
     backgroundToShow.show();
     previousBackground.fadeOut("200");
   })
