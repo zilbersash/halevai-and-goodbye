@@ -351,6 +351,10 @@ nav a:hover {
   position: relative;
 }
 
+.scrolling-layer::-webkit-scrollbar {
+  display: none;
+}
+
 .image-container {
   width: 100vw; 
   max-width: 133.3333vh;
