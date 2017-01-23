@@ -334,7 +334,6 @@ nav a:hover {
 }
 
 .carousel .item {
-    transition: opacity 0.3s;
     text-align: center;
     /*overflow-y: auto;*/
     overflow: hidden;
@@ -370,12 +369,6 @@ nav a:hover {
     z-index: 2;
 }
 
-.carousel .next {
-    left: 0;
-    opacity: 1;
-    z-index: 1;
-}
-
 .carousel-control.left, .carousel-control.right {
     background: none;
 }
@@ -395,5 +388,36 @@ nav a:hover {
 @media only screen and (min-width: 992px) {
   .mobile-only {
     display: none !important;
+  }
+  .carousel .item {
+    transition: opacity 0.3s;
+  }
+  .carousel .next {
+      left: 0;
+      opacity: 1;
+      z-index: 1;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .carousel-indicators {
+    display: none;
+  }
+  
+  .carousel-inner > .next {
+    left: -100%;
+  }
+  .carousel-inner > .prev {
+    left: 100%;
+  }
+  .carousel-inner > .active.left {
+    left: 100%;
+  }
+  .carousel-inner > .active.right {
+    left: -100%;
+  }
+
+  .carousel .item {
+    transition: none;
   }
 }

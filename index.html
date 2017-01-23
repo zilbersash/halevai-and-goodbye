@@ -12,6 +12,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/carousel-swipe.js"></script>
     <script src="js/background-switch.js"></script>
 </head>
 
@@ -396,10 +397,10 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $('.carousel').carousel('pause');
         $('.carousel').carousel({
-            pause: true,
-            interval: false
+            interval: false,
+            wrap: false,
+            keyboard: false
         });
     });
 </script>
