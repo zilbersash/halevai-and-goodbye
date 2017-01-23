@@ -391,3 +391,9 @@ nav a:hover {
 .video-wrapper video {
     top: 0;
 }
+
+@media only screen and (min-width: 992px) {
+  .mobile-only {
+    display: none !important;
+  }
+}
