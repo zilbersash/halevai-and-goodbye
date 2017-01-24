@@ -14,6 +14,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/carousel-swipe.js"></script>
     <script src="js/background-switch.js"></script>
+    <script src="js/imageMapResizer.min.js"></script>
 </head>
 
 <body>
@@ -35,6 +36,7 @@
                 <li data-target="#carousel-example-generic" data-slide-to="10"></li>
                 <li data-target="#carousel-example-generic" data-slide-to="11"></li>
                 <li data-target="#carousel-example-generic" data-slide-to="12"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="13"></li>
             </ol>
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
@@ -46,10 +48,16 @@
                         <img src="pngs/01_opening/04_first_page.jpg">
                     </div>
                 </div>
-                <div class="item">
+                <div class="item instructions">
                     <div class="scrolling-layer">
-                        <img src="pngs/02_instructions/instructions_01.jpg">
-                        <img src="pngs/02_instructions/instructions_02.jpg">
+                        <img src="pngs/02_instructions/P00_instructions_01.jpg">
+                        <img src="pngs/02_instructions/P00_instructions_02.gif">
+                        <img src="pngs/02_instructions/P00_instructions_03.jpg">
+                        <img src="pngs/02_instructions/P01_instructions_04.png">
+                        <img src="pngs/02_instructions/P01_instructions_05.gif">
+                        <img src="pngs/02_instructions/P01_instructions_06.png">
+                        <img src="pngs/02_instructions/P01_instructions_07.gif">
+                        <img src="pngs/02_instructions/P01_instructions_08.png">
                     </div>
                 </div>
                 <div class="item n_2">
@@ -380,7 +388,18 @@
                         </div>
                     </div>
                 </div>
-
+                <div class="item">
+                    <div class="fixed-layer">
+                        <img src="pngs/14_about/P00_About_01.gif">
+                        <img src="pngs/14_about/P00_About_02.jpg" usemap="#about-image-map" />
+                        <map name="about-image-map">
+                            <area href="mailto:zilbersash@gmail.com" shape="rect" coords="483,481,887,544" style="outlidne:none;" target="_self" />
+                            <area href="http://www.od-iurim.com/shel/sasha" shape="rect" coords="576,564,755,630" style="outline:none;" target="_self" />
+                            <area href="http://www.instagram.com/sasha" shape="rect" coords="823,564,884,623" style="outline:none;" target="_self"/>
+                            <area href="http://www.records.aurismedia.com/album/haleway-and-goodbye-praise-to-pious-boo-to-baboons" shape="rect" coords="1414,481,1654,540" style="outline:none;" target="_self"/>
+                        </map>
+                    </div>
+                </div>
                 <!-- Controls -->
                 <!--
             <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
@@ -402,6 +421,14 @@
             wrap: false,
             keyboard: false
         });
+
+        $('.carousel').on('slid.bs.carousel', function (event) {
+            var visibleMaps = $(event.relatedTarget).find('map');
+            if (visibleMaps.length) {
+                visibleMaps.imageMapResize();
+            }
+        })
+
     });
 </script>
 

@@ -421,3 +421,7 @@ nav a:hover {
     transition: none;
   }
 }
+
+.instructions .scrolling-layer {
+  background-color: white;
+}
