@@ -179,22 +179,6 @@ html, body {
   background-image: url("../pngs/nav/14_full.png");
 }
 
-.carousel-control .glyphicon-chevron-left, .carousel-control .icon-prev {
-    background-image: url("../pngs/nav/arrow_left.png") !important;
-    margin-left: -70px;
-}
-
-.carousel-control .icon-prev, .carousel-control .icon-next, .carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right {
-    background-image: url("../pngs/nav/arrow_right.png");
-    margin-right: -70px;
-}
-
-.carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-prev, .carousel-control .icon-next {
-    height: 40px;
-    background-position: center;
-    background-size: contain;
-}
-
 .carousel-control {
     z-index: 100000;
 }
@@ -266,13 +250,6 @@ nav a:hover {
     z-index: -1;
 }
 
-/*.carousel .item .fixed {
-    position: fixed;
-    width: 100vw; 
-    height: 75vw;
-    max-height: 100vh;
-    max-width: 133.3333vh;
-}*/
 .carousel .item .fixed-layer {
   position: absolute;
   left: 0;
@@ -400,7 +377,7 @@ nav a:hover {
 }
 
 @media only screen and (max-width: 992px) {
-  .carousel-indicators {
+  .desktop-only {
     display: none;
   }
   
@@ -424,4 +401,14 @@ nav a:hover {
 
 .instructions .scrolling-layer {
   background-color: white;
+}
+
+.carousel-control {
+  width: 90px;
+  opacity: 1;
+}
+
+.carousel-control .icon-prev, .carousel-control .icon-next {
+  width: 55px;
+  height: 55px;
 }

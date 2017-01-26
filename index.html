@@ -22,7 +22,7 @@
         <img class="frame" src="pngs/nav/frame.png">
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
             <!-- Indicators -->
-            <ol class="carousel-indicators">
+            <ol class="carousel-indicators desktop-only">
                 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                 <li data-target="#carousel-example-generic" data-slide-to="1" class="mobile-only"></li>
                 <li data-target="#carousel-example-generic" data-slide-to="2"></li>
@@ -48,7 +48,7 @@
                         <img src="pngs/01_opening/04_first_page.jpg">
                     </div>
                 </div>
-                <div class="item instructions">
+                <div class="item instructions mobile-only">
                     <div class="scrolling-layer">
                         <img src="pngs/02_instructions/P00_instructions_01.jpg">
                         <img src="pngs/02_instructions/P00_instructions_02.gif">
@@ -400,15 +400,15 @@
                         </map>
                     </div>
                 </div>
-                <!-- Controls -->
-                <!--
-            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                <span class="glyphicon-chevron-left"></span>
-            </a>
-            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                <span class="glyphicon-chevron-right"></span>
-            </a>
-            -->
+            </div>
+            <!-- Controls -->
+            <div class="desktop-only">
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <img class="icon-next" src="/pngs/nav/arrow_left.png">
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <img class="icon-prev" src="/pngs/nav/arrow_right.png">
+                </a>
             </div>
     </section>
     <script src="js/scrollsnap-polyfill.js"></script>
@@ -428,7 +428,16 @@
                 visibleMaps.imageMapResize();
             }
         })
-
+        $('.carousel').on('slide.bs.carousel', function (event) {
+            var target = $(event.relatedTarget);
+            var isMobile = window.matchMedia('(max-width: 992px)').matches;
+            if (target.hasClass('mobile-only') && !isMobile) {
+              var slideTo = target.index();
+              var offset = event.direction == "left" ? 1 : -1;
+              $(this).carousel(slideTo + offset);
+              return false;
+            }
+        })
     });
 </script>
 
