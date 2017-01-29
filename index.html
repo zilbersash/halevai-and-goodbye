@@ -23,7 +23,7 @@
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
             <!-- Indicators -->
             <ol class="carousel-indicators desktop-only hidden">
-                <li data-target="#carousel-example-generic" data-slide-to="0" class="active hidden"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                 <li data-target="#carousel-example-generic" data-slide-to="1" class="mobile-only"></li>
                 <li data-target="#carousel-example-generic" data-slide-to="2"></li>
                 <li data-target="#carousel-example-generic" data-slide-to="3"></li>
@@ -442,8 +442,6 @@
             $('.carousel-arrows, .carousel-indicators').toggleClass('hidden', hideControls);
             var hideLeftArrow = target.index() == target.parent().children().length - 1;
             $('.carousel-control.left').toggleClass('hidden', hideLeftArrow);
-            var hideRightArrow = target.index() == 2;
-            $('.carousel-control.right').toggleClass('hidden', hideRightArrow);
         });
         
         $('map').imageMapResize();
