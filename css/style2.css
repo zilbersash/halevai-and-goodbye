@@ -26,9 +26,15 @@ html, body {
   direction: rtl;
   padding-right: 0;
   margin-bottom: 0;
-  bottom: 0;
   z-index: 9999;
+  bottom: 0;
+  transition: bottom 0.3s;
 }
+
+.carousel-indicators.inactive {
+  bottom: -30px;
+}
+
 .carousel-indicators li {
     /*width: 19px;*/
     height: 32px;

@@ -441,12 +441,34 @@
             $('.carousel-arrows, .carousel-indicators').toggleClass('hidden', hideControls);
             var hideLeftArrow = target.index() == target.parent().children().length - 1;
             $('.carousel-control.left').toggleClass('hidden', hideLeftArrow);
+            showIndicators(true);
         });
         
         $('map').imageMapResize();
         $('#monkey-ass-area').click(function () {
             $('.carousel').carousel('next');
         });
+    });
+    
+    var hideTimeoutId = null;
+    function showIndicators(show) {
+      $('.carousel-indicators').toggleClass('inactive', !show);
+      if (show) {
+        clearTimeout(hideTimeoutId);
+        hideTimeoutId = setTimeout(showIndicators, 3000, false);
+      }
+    }
+    var lastMouseX = null;
+    var lastMouseY = null;
+    
+    $(document.body).mousemove(function (e) {
+      if (lastMouseX == e.pageX && lastMouseY == e.pageY) {
+        // Chrome fires mousemove when scrolling even if the mouse didn't move.
+        return;
+      }
+      lastMouseX = e.pageX;
+      lastMouseY = e.pageY;
+      showIndicators(true);
     });
 </script>
 
