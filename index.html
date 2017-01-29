@@ -44,7 +44,10 @@
                     <div class="fixed-layer">
                         <img src="pngs/01_opening/01_first_page.jpg">
                         <img src="pngs/01_opening/02_first_page.jpg">
-                        <img src="pngs/01_opening/03_first_page.gif">
+                        <img src="pngs/01_opening/03_first_page.gif" usemap="#monkey-ass">
+                        <map name="monkey-ass">
+                            <area href="#" shape="poly" coords="1057,91,1033,96,1013,109,1000,129,995,153,1000,177,1013,197,1033,210,1057,215,1081,210,1101,197,1114,177,1119,153,1114,129,1101,109,1081,96" style="outline:none;" id="monkey-ass-area"/>
+                        </map>
                         <img src="pngs/01_opening/04_first_page.jpg">
                     </div>
                 </div>
@@ -398,7 +401,7 @@
                 </div>
             </div>
             <!-- Controls -->
-            <div class="desktop-only">
+            <div class="carousel-arrows desktop-only hidden">
                 <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
                     <img class="icon-next" src="/pngs/nav/arrow_left.png">
                 </a>
@@ -423,7 +426,8 @@
             if (visibleMaps.length) {
                 visibleMaps.imageMapResize();
             }
-        })
+        });
+        
         $('.carousel').on('slide.bs.carousel', function (event) {
             var target = $(event.relatedTarget);
             var isMobile = window.matchMedia('(max-width: 992px)').matches;
@@ -433,7 +437,17 @@
               $(this).carousel(slideTo + offset);
               return false;
             }
-        })
+            
+            var hideControls = target.index() == 0;
+            $('.carousel-arrows').toggleClass('hidden', hideControls);
+            var hideLeftArrow = target.index() == target.parent().children().length - 1;
+            $('.carousel-control.left').toggleClass('hidden', hideLeftArrow);
+        });
+        
+        $('map').imageMapResize();
+        $('#monkey-ass-area').click(function () {
+            $('.carousel').carousel('next');
+        });
     });
 </script>
 
