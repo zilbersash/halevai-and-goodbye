@@ -28,7 +28,7 @@ html, body {
   margin-bottom: 0;
   z-index: 9999;
   bottom: 0;
-  transition: bottom 0.3s;
+  transition: bottom 0.2s;
 }
 
 .carousel-indicators.inactive {
@@ -36,11 +36,11 @@ html, body {
 }
 
 .carousel-arrows .left {
-  transition: left 0.3s;
+  transition: left 0.2s;
 }
 
 .carousel-arrows .right {
-  transition: right 0.3s;
+  transition: right 0.2s;
 }
 
 .carousel-arrows.inactive .left {
