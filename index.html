@@ -452,7 +452,7 @@
     
     var hideTimeoutId = null;
     function showIndicators(show) {
-      $('.carousel-indicators').toggleClass('inactive', !show);
+      $('.carousel-indicators, .carousel-arrows').toggleClass('inactive', !show);
       if (show) {
         clearTimeout(hideTimeoutId);
         hideTimeoutId = setTimeout(showIndicators, 3000, false);

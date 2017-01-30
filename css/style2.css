@@ -35,6 +35,22 @@ html, body {
   bottom: -30px;
 }
 
+.carousel-arrows .left {
+  transition: left 0.3s;
+}
+
+.carousel-arrows .right {
+  transition: right 0.3s;
+}
+
+.carousel-arrows.inactive .left {
+  left: -90px;
+}
+
+.carousel-arrows.inactive .right {
+  right: -90px;
+}
+
 .carousel-indicators li {
     /*width: 19px;*/
     height: 32px;
