@@ -432,7 +432,7 @@
         
         $('.carousel').on('slide.bs.carousel', function (event) {
             var target = $(event.relatedTarget);
-            var isMobile = window.matchMedia('(max-width: 992px)').matches;
+            var isMobile = window.matchMedia('(max-width: 991px)').matches;
             if (target.hasClass('mobile-only') && !isMobile) {
               var slideTo = target.index();
               var offset = event.direction == "left" ? 1 : -1;
