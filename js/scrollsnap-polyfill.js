@@ -205,16 +205,6 @@
         return stayInBounds(0, scrollObj.scrollHeight, snapCoords);
       }
     }
-    // no snap found, use first or last?
-    if (direction == 1 && i === l-1) {
-      currentIteration = l-1;
-      // the for loop stopped at the last element
-      return stayInBounds(0, scrollObj.scrollHeight, snapCoords);
-    } else if (direction == -1 && i === 0) {
-      currentIteration = 0;
-      // the for loop stopped at the first element
-      return stayInBounds(0, scrollObj.scrollHeight, snapCoords);
-    }
     // stay in the same place
     return null;
   }
