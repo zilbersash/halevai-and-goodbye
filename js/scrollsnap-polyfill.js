@@ -168,8 +168,29 @@
     }
     var top = scrollObj.scrollTop;
     var snapCoords = 0;
+    
+    var firstSnap = 0;
+    var lastSnap = l - 1;
+    
+    if (direction == 1) {
+      // Find first element that is below scrollStart.
+      $.each(scrollObj.snapElements, function(i, el) {
+        if (el.offsetTop > scrollStart) {
+          firstSnap = i;
+          return false;
+        }
+      });
+    } else {
+      // Find last element that is above scrollStart.
+      $.each(scrollObj.snapElements, function(i, el) {
+        if (el.offsetTop >= scrollStart) {
+          lastSnap = i - 1;
+          return false;
+        }
+      });
+    }
 
-    for(var i = 0; i<l; i++) {
+    for(var i = firstSnap; i <= lastSnap; i++) {
       currentIteratedObj = scrollObj.snapElements[i];
       // get objects snap coords by adding obj.top + obj.snaplength.y
       snapCoords = currentIteratedObj.offsetTop - scrollObj.offsetTop;
