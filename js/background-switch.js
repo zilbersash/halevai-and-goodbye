@@ -20,6 +20,6 @@ $(function() {
     backgroundToShow.css("zIndex", 0);
     previousBackground.css("zIndex", 1);
     backgroundToShow.show();
-    previousBackground.fadeOut("100");
+    previousBackground.fadeOut(300);
   })
 })
