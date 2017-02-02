@@ -450,14 +450,17 @@
     var lastMouseX = null;
     var lastMouseY = null;
     
+    mouseMoveTimeoutId = null;
     $(document.body).mousemove(function (e) {
-      if (lastMouseX == e.pageX && lastMouseY == e.pageY) {
-        // Chrome fires mousemove when scrolling even if the mouse didn't move.
-        return;
+      clearTimeout(mouseMoveTimeoutId);
+      mouseMoveTimeoutId = setTimeout(function() {
+        lastMouseX = e.pageX;
+        lastMouseY = e.pageY;
+      }, 100);
+      var distance = Math.sqrt(Math.pow(lastMouseX - e.pageX, 2) + Math.pow(lastMouseY - e.pageY, 2));
+      if (distance > 20) {
+        showIndicators(true);
       }
-      lastMouseX = e.pageX;
-      lastMouseY = e.pageY;
-      showIndicators(true);
     });
 </script>
 
