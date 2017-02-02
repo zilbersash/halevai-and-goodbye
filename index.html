@@ -441,12 +441,16 @@
     
     var hideTimeoutId = null;
     function showIndicators(show) {
+      if (!show && $('.carousel-indicators:hover, .carousel-arrows:hover').length) {
+        show = true;
+      }
       $('.carousel-indicators, .carousel-arrows').toggleClass('inactive', !show);
       if (show) {
         clearTimeout(hideTimeoutId);
         hideTimeoutId = setTimeout(showIndicators, 1000, false);
       }
     }
+    
     var lastMouseX = null;
     var lastMouseY = null;
     
