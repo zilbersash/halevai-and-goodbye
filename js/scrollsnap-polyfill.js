@@ -169,8 +169,8 @@
     var top = scrollObj.scrollTop;
     var snapCoords = 0;
     
-    var firstSnap = 0;
-    var lastSnap = l - 1;
+    var firstSnap = null;
+    var lastSnap = null;
     
     if (direction == 1) {
       // Find first element that is below scrollStart.
@@ -180,14 +180,20 @@
           return false;
         }
       });
+      var lastSnap = l - 1;
     } else {
       // Find last element that is above scrollStart.
-      $.each(scrollObj.snapElements, function(i, el) {
-        if (el.offsetTop >= scrollStart) {
-          lastSnap = i - 1;
-          return false;
+      for (var i = l - 1; i >= 0; i--) {
+        if (scrollObj.snapElements[i].offsetTop < scrollStart) {
+          lastSnap = i;
+          break;
         }
-      });
+      }
+      var firstSnap = 0;
+    }
+    
+    if (firstSnap === null || lastSnap === null) {
+      return null;
     }
 
     for(var i = firstSnap; i <= lastSnap; i++) {
