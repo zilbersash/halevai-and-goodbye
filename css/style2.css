@@ -195,6 +195,9 @@ html, body {
 
 .carousel-control {
     z-index: 100000;
+    height: 50px;
+    top: 50%;
+    transform: translateY(-50%); 
 }
 
 .menu_btn img {
