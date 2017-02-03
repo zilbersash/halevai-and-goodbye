@@ -15,6 +15,18 @@
     <script src="js/carousel-swipe.js"></script>
     <script src="js/background-switch.js"></script>
     <script src="js/imageMapResizer.min.js"></script>
+    <script type="text/javascript">
+      function preload(arrayOfImages) {
+          $(arrayOfImages).each(function(){
+              $('<img/>')[0].src = this;
+          });
+      }
+
+      preload([
+          'pngs/nav/arrow_right.png',
+          'pngs/nav/arrow_left.png',
+      ]);
+    </script>
 </head>
 
 <body>
@@ -406,17 +418,6 @@
 </body>
 
 <script type="text/javascript">
-    function preload(arrayOfImages) {
-        $(arrayOfImages).each(function(){
-            $('<img/>')[0].src = this;
-        });
-    }
-
-    preload([
-        'pngs/nav/arrow_right.png',
-        'pngs/nav/arrow_left.png',
-    ]);
-
     $(document).ready(function() {
         $('.carousel').carousel({
             interval: false,
