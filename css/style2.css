@@ -376,42 +376,42 @@ nav a:hover {
     top: 0;
 }
 
-@media only screen and (min-width: 992px) {
-  .mobile-only {
-    display: none !important;
-  }
-  .carousel .item {
-    transition: opacity 0.3s;
-  }
-  .carousel .next {
-      left: 0;
-      opacity: 1;
-      z-index: 1;
-  }
+/* Non-touch devices only: */
+.no-touchevents .mobile-only {
+  display: none !important;
+}
+.no-touchevents .carousel .item {
+  transition: opacity 0.3s;
+}
+.no-touchevents .carousel .next {
+    left: 0;
+    opacity: 1;
+    z-index: 1;
+}
+/* End non-touch devices only. */
+
+/* Touch devices only: */
+.touchevents .desktop-only {
+  display: none;
 }
 
-@media only screen and (max-width: 991px) {
-  .desktop-only {
-    display: none;
-  }
-  
-  .carousel-inner > .next {
-    left: -100%;
-  }
-  .carousel-inner > .prev {
-    left: 100%;
-  }
-  .carousel-inner > .active.left {
-    left: 100%;
-  }
-  .carousel-inner > .active.right {
-    left: -100%;
-  }
-
-  .carousel .item {
-    transition: none;
-  }
+.touchevents .carousel-inner > .next {
+  left: -100%;
 }
+.touchevents .carousel-inner > .prev {
+  left: 100%;
+}
+.touchevents .carousel-inner > .active.left {
+  left: 100%;
+}
+.touchevents .carousel-inner > .active.right {
+  left: -100%;
+}
+
+.touchevents .carousel .item {
+  transition: none;
+}
+/* End touch devices only. */
 
 .instructions .scrolling-layer {
   background-color: white;

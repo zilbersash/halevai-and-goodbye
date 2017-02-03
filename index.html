@@ -12,6 +12,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/modernizr-custom.js"></script>
     <script src="js/carousel-swipe.js"></script>
     <script src="js/background-switch.js"></script>
     <script src="js/imageMapResizer.min.js"></script>
@@ -448,7 +449,8 @@
         
         $('.carousel').on('slide.bs.carousel', function (event) {
             var target = $(event.relatedTarget);
-            var isMobile = window.matchMedia('(max-width: 991px)').matches;
+            //var isMobile = window.matchMedia('(max-width: 991px)').matches;
+            var isMobile = Modernizr.touchevents;
             if (target.hasClass('mobile-only') && !isMobile) {
               var slideTo = target.index();
               var offset = event.direction == "left" ? 1 : -1;
