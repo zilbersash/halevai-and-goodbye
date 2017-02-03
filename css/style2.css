@@ -333,7 +333,21 @@ nav a:hover {
     overflow: hidden;
     height: 100%;
     width: 100%;
+    background-image: url('../pngs/nav/loading.gif');
+    background-size: contain;
 }
+
+.carousel .item.loaded {
+  background: transparent;
+}
+
+.carousel .item img {
+  opacity: 0;
+} 
+
+.carousel .item.loaded img {
+  opacity: 1;
+} 
 
 .carousel .item .scrolling-layer {
   overflow-y: auto;
@@ -416,7 +430,7 @@ nav a:hover {
 }
 /* End touch devices only. */
 
-.instructions .scrolling-layer {
+.instructions.loaded .scrolling-layer {
   background-color: white;
 }
 

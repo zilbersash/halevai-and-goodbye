@@ -64,9 +64,6 @@
   function setUpElement(obj) { //, declaration) {
     // add the event listener
     obj.addEventListener('scroll', handler, false);
-
-    // init possible elements
-    obj.snapElements = $(obj).find('.snap');
   }
 
   /**
@@ -162,7 +159,8 @@
       currentIteration = -1;
 
   function getNextElementSnapPoint(scrollObj, direction) {
-    var l = scrollObj.snapElements.length;
+    var snapElements = $(scrollObj).find('.snap');
+    var l = snapElements.length;
     if (l == 0) {
       return null;
     }
@@ -174,7 +172,7 @@
     
     if (direction == 1) {
       // Find first element that is below scrollStart.
-      $.each(scrollObj.snapElements, function(i, el) {
+      $.each(snapElements, function(i, el) {
         if (el.offsetTop > scrollStart) {
           firstSnap = i;
           return false;
@@ -184,7 +182,7 @@
     } else {
       // Find last element that is above scrollStart.
       for (var i = l - 1; i >= 0; i--) {
-        if (scrollObj.snapElements[i].offsetTop < scrollStart) {
+        if (snapElements[i].offsetTop < scrollStart) {
           lastSnap = i;
           break;
         }
@@ -197,7 +195,7 @@
     }
 
     for(var i = firstSnap; i <= lastSnap; i++) {
-      currentIteratedObj = scrollObj.snapElements[i];
+      currentIteratedObj = snapElements[i];
       // get objects snap coords by adding obj.top + obj.snaplength.y
       snapCoords = currentIteratedObj.offsetTop - scrollObj.offsetTop;
       // check if object snappoint is "close" enough to scrollable snappoint
