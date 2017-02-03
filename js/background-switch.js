@@ -20,7 +20,7 @@ $(function() {
     backgroundToShow.css("zIndex", 0);
     previousBackground.css("zIndex", 1);
     backgroundToShow.show();
-    var fadeSpeed = parseInt(backgroundToShow.data("fadeSpeed")) || 300;
+    var fadeSpeed = parseInt(backgroundToShow.data("fadeSpeed")) || 200;
     previousBackground.fadeOut(fadeSpeed);
   })
 })
