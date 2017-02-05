@@ -293,8 +293,8 @@ nav a:hover {
 }
 
 .carousel .item img {
-  /*position: relative;*/
   width: 100%;
+  display: block;
 }
 
 .page_content {
