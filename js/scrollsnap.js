@@ -1,97 +1,27 @@
 (function(w, doc, undefined) {
   // Enable strict mode
   'use strict';
-  
+
   $(function() {
     $(".scrolling-layer").each(function(i, element) {
       setUpElement(element);
     });
   });
-  
-  
 
-  /*
-   * alias
-   * w: window global object
-   * doc: document
-   * undefined: undefined
-   */
+  var SCROLL_TIMEOUT = 45;
+  var SCROLL_TIME = 450;
 
-    /**
-     * constraint to jumping to the next snap-point.
-     * when scrolling further than SNAP_CONSTRAINT snap-points,
-     * but the current distance is less than 1-0.18 (read: 18 percent),
-     * the snap-will go back to the closer snap-point.
-     */
-  var CONSTRAINT = 1-0.18,
-      /*
-       * if scrolling for one snap-point only,
-       * the scroll distance must be at least 5% of the scroll-width.
-       */
-      FIRST_CONSTRAINT = 1-0.05,
-
-      /*
-       * minimum scroll distance in pixel
-       */
-      MIN_PX_CONSTRAINT = 5,
-
-      /**
-       * when scrolling for more than SNAP_CONSTRAINT snap points,
-       * a constraint is applied for scrolling to snap points in the distance.
-       * @type {Number}
-       */
-      SNAP_CONSTRAINT = 2,
-
-      /**
-       * time in ms after which scrolling is considered finished.
-       * the scroll timeouts are timed with this.
-       * whenever a new scroll event is triggered, the previous timeout is deleted.
-       * @type {Number}
-       */
-      SCROLL_TIMEOUT = 45,
-
-      /**
-       * time for the smooth scrolling
-       * @type {Number}
-       */
-      SCROLL_TIME = 450; //768;
-
-  /**
-   * set up an element for scroll-snap behaviour
-   * @param {Object} obj         HTML element
-   * @param {Object} declaration CSS declarations
-   */
-  function setUpElement(obj) { //, declaration) {
-    // add the event listener
+  function setUpElement(obj) {
     obj.addEventListener('scroll', handler, false);
   }
 
-  /**
-   * the last created timeOutId for scroll event timeouts.
-   * @type int
-   */
   var timeOutId = null;
-
-  /**
-   * starting point for current scroll
-   * @type length
-   */
   var scrollStart = null;
-
-  /**
-   * the last object receiving a scroll event
-   */
   var lastScrollObj;
 
-  /**
-   * scroll handler
-   * this is the callback for scroll events.
-   */
   var handler = function(evt) {
 
-    // use evt.target as target-element
     lastScrollObj = evt.target;
-    // lastScrollObj = lastObj;
 
     // if currently animating, stop it. this prevents flickering.
     if (animationFrame) {
@@ -110,11 +40,6 @@
       scrollStart = lastScrollObj.scrollTop;
     }
 
-    /* set a timeout for every scroll event.
-     * if we have new scroll events in that time, the previous timeouts are cleared.
-     * thus we can be sure that the timeout will be called 50ms after the last scroll event.
-     * this means a huge improvement in speed, as we just assign a timeout in the scroll event, which will be called only once (after scrolling is finished)
-     */
     timeOutId = setTimeout(handlerDelayed, SCROLL_TIMEOUT);
   };
 
@@ -133,7 +58,6 @@
     var direction = (scrollStart - lastScrollObj.scrollTop > 0) ? -1 : 1;
     var snapPoint;
 
-    // if (typeof lastScrollObj.snapElements !== 'undefined' && lastScrollObj.snapElements.length > 0) {
     snapPoint = getNextElementSnapPoint(lastScrollObj, direction);
     if (snapPoint === null) {
       scrollStart = lastScrollObj.scrollTop;
@@ -166,10 +90,10 @@
     }
     var top = scrollObj.scrollTop;
     var snapCoords = 0;
-    
+
     var firstSnap = null;
     var lastSnap = null;
-    
+
     if (direction == 1) {
       // Find first element that is below scrollStart.
       $.each(snapElements, function(i, el) {
@@ -189,7 +113,7 @@
       }
       var firstSnap = 0;
     }
-    
+
     if (firstSnap === null || lastSnap === null) {
       return null;
     }

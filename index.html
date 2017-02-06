@@ -309,7 +309,7 @@
                 </a>
             </div>
     </section>
-    <script src="js/scrollsnap-polyfill.js"></script>
+    <script src="js/scrollsnap.js"></script>
 </body>
 
 <script type="text/javascript">
@@ -326,7 +326,7 @@
                 visibleMaps.imageMapResize();
             }
         });
-        
+
         $('.carousel').on('slide.bs.carousel', function (event) {
             var target = $(event.relatedTarget);
             //var isMobile = window.matchMedia('(max-width: 991px)').matches;
@@ -337,20 +337,20 @@
               $(this).carousel(slideTo + offset);
               return false;
             }
-            
+
             showIndicators(true);
         });
-        
+
         $('.loaded map').imageMapResize();
         $('#monkey-ass-area').click(function () {
             $('.carousel').carousel('next');
         });
-        
+
         $('.carousel-inner').children().first().imagesLoaded(function() {
           loadImages(1);
         });
     });
-    
+
     function loadImages(pageIndex) {
       var currentPage = $('.carousel-inner').children().get(pageIndex);
       if (!currentPage) {
@@ -361,11 +361,11 @@
         loadImages(pageIndex + 1);
         return;
       }
-      
+
       $(currentPage).find('span').each(function (i, el) {
         replacePlaceholderImage(el);
       });
-      
+
       $(currentPage).imagesLoaded(function () {
         $(currentPage).addClass('loaded');
         var imageMaps = $(currentPage).find('map');
@@ -375,7 +375,7 @@
         loadImages(pageIndex + 1);
       });
     }
-    
+
     function replacePlaceholderImage(el) {
     	var newElement = $('<img />', {html: $(el).html()});
   		$.each(el.attributes, function(i, attribute) {
@@ -384,7 +384,7 @@
   		});
   		$(el).replaceWith(newElement);
     }
-    
+
     var hideTimeoutId = null;
     function showIndicators(show) {
       if (!show && $('.carousel-indicators:hover, .carousel-arrows:hover').length) {
@@ -396,10 +396,10 @@
         hideTimeoutId = setTimeout(showIndicators, 1000, false);
       }
     }
-    
+
     var lastMouseX = null;
     var lastMouseY = null;
-    
+
     mouseMoveTimeoutId = null;
     $(document.body).mousemove(function (e) {
       clearTimeout(mouseMoveTimeoutId);
