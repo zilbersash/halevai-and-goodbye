@@ -379,6 +379,7 @@ nav a:hover {
 
 .carousel-control.left, .carousel-control.right {
     background: none;
+    cursor: pointer;
 }
 
 .carousel-inner .title {
