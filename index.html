@@ -17,7 +17,7 @@
     <script src="js/carousel-swipe.js"></script>
     <script src="js/background-switch.js"></script>
     <script src="js/imagesloaded.pkgd.min.js"></script>
-    <script src="js/imageMapResizer.min.js"></script>
+    <script src="js/imageMapResizer.js"></script>
     <script type="text/javascript">
       function preload(arrayOfImages) {
           $(arrayOfImages).each(function(){
@@ -86,8 +86,8 @@
                 <div class="item n_1 active fullscreen loaded">
                     <div class="fixed-layer mobile-only">
                         <img src="pngs/00_opening/P01_opening_mobile.gif" usemap="#monkey-ass">
-                        <map name="monkey-ass">
-                            <area href="#" shape="rect" coords="600,693,1600,894" style="outline:none;" id="monkey-ass-area"/>
+                        <map name="monkey-ass" data-natural-width="1900" data-natural-height="1425">
+                            <area href="#" shape="rect" coords="600,520,1500,1090" style="outline:none;" id="monkey-ass-area"/>
                         </map>
                     </div>
                     <div class="fixed-layer desktop-only">
@@ -291,11 +291,12 @@
                 <div class="item">
                     <div class="fixed-layer">
                         <span data-src="pngs/14_about/P00_About_bg.gif" usemap="#about-image-map"></span>
-                        <map name="about-image-map">
-                            <area href="mailto:zilbersash@gmail.com" shape="rect" coords="483,936,887,1062" style="outlidne:none;" target="_self" />
-                            <area href="https://www.flickr.com/photos/oooctopus/" shape="rect" coords="576,1082,755,1148" style="outline:none;" target="_self" />
-                            <area href="https://www.instagram.com/zilbersash/" shape="rect" coords="823,1082,884,1141" style="outline:none;" target="_self"/>
-                            <area href="http://www.records.aurismedia.com/album/haleway-and-goodbye-praise-to-pious-boo-to-baboons" shape="rect" coords="1414,999,1654,1058" style="outline:none;" target="_self"/>
+                        <map name="about-image-map" data-natural-width="1900" data-natural-height="1425">
+                            <area href="mailto:zilbersash@gmail.com" shape="rect" coords="483,877,887,1003" style="outline:none;" target="_self" />
+                            <area href="https://www.flickr.com/photos/oooctopus/" shape="rect" coords="576,1027,755,1089" style="outline:none;" target="_self" />
+                            <area href="https://www.instagram.com/zilbersash/" shape="rect" coords="823,1027,884,1082" style="outline:none;" target="_self"/>
+                            <area href="http://www.records.aurismedia.com/album/haleway-and-goodbye-praise-to-pious-boo-to-baboons" shape="rect" coords="1414,940,1654,999" style="outline:none;" target="_self"/>
+                            <area href="https://www.facebook.com/sharer/sharer.php?u=http%3A//www.halevai-and-goodbye.com" id="share" shape="rect" coords="710,1170,910,1290" style="outline:none;" target="_self" />
                         </map>
                     </div>
                 </div>
@@ -436,6 +437,15 @@
       if (distance > 20) {
         showIndicators(true);
       }
+    });
+    
+    $('#share').on('click', function() {
+      var w = 580, h = 300,
+      left = (screen.width/2)-(w/2),
+      top = (screen.height/2)-(h/2);
+
+      window.open ( $(this).attr('href'), '', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
+      return false;
     });
 </script>
 
