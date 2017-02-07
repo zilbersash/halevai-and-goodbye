@@ -391,7 +391,7 @@
       var portrait4by3Width = Math.min(screen.width, screen.height / 3 * 4);
       var landscape4by3Width = Math.min(screen.height, screen.width / 3 * 4);
       var max4by3WidthOnDevice = Math.max(portrait4by3Width, landscape4by3Width);
-      var pixelRatio = window.devicePixelRatio || 1;
+      var pixelRatio = window.devicePixelRatio || screen.deviceXDPI / screen.logicalXDPI || 1;
       var max4by3WidthOnDeviceInDevicePixels = max4by3WidthOnDevice * pixelRatio;
       // Find the first available size that is >= the desired size. If none is available,
       // serve the largest we've got.
