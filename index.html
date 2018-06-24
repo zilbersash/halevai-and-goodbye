@@ -303,7 +303,7 @@
                             <area href="https://www.instagram.com/zilbersash/" shape="rect" coords="823,1027,884,1082" style="outline:none;" target="_self"/>
                             <area href="http://www.records.aurismedia.com/album/haleway-and-goodbye-praise-to-pious-boo-to-baboons" shape="rect" coords="1414,940,1654,999" style="outline:none;" target="_self"/>
                             <area href="https://www.facebook.com/sharer/sharer.php?u=http%3A//www.halevai-and-goodbye.com" id="share" shape="rect" coords="680,1150,910,1280" style="outline:none;" target="_self" />
-                            <area href="http://www.matangover.com" shape="rect" coords="0,1330,320,1450" style="outline:none;" target="_self" />
+                            <area href="http://www.matangover.com" shape="rect" coords="260,790,580,870" style="aoutline:none;" target="_self" />
                         </map>
                     </div>
                 </div>
@@ -386,7 +386,7 @@
 
     AVAILABLE_IMAGE_SIZES = [960, 1024, 1440, 1900];
     var imageSize = getImageSize();
-    
+
     function getImageSize() {
       var portrait4by3Width = Math.min(screen.width, screen.height / 3 * 4);
       var landscape4by3Width = Math.min(screen.height, screen.width / 3 * 4);
@@ -404,7 +404,7 @@
       });
       return desiredSize;
     }
-    
+
     function replacePlaceholderImage(el) {
     	var newElement = $('<img />', {html: $(el).html()});
   		$.each(el.attributes, function(i, attribute) {
@@ -444,7 +444,7 @@
         showIndicators(true);
       }
     });
-    
+
     $('#share').on('click', function() {
       var w = 580, h = 300,
       left = (screen.width/2)-(w/2),
